@@ -13,3 +13,6 @@
 
 
 The necessary ffmpeg dependencies are included in [ffmpeg-depends](./ffmpeg_depends). Note that this is not necessarily the latest version.
+
+
+See ffmpeg [documentation](https://ffmpeg.org/documentation.html) for more details about various filters and how to use them.

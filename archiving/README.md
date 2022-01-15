@@ -29,18 +29,19 @@ FOR /r %%i in (.)  DO (
     echo "done"
 )
 ```
+<br />
 
 1. `@echo off & setlocal` 
 - Display options \
   - `@echo off` Turns off the command being displayed in the command line \
   - `setlocal` command is used so that variables defined (see next section) are local in scope. For more explanation, see [Local v/s Global variables](https://www.tutorialspoint.com/batch_script/batch_script_variables.htm)
 
-
+<br />
 
 2. `set "compress_factor=4";`
 Here we define and assign a local variable called `compress_factor`.
 
-
+<br />
 
 3. `FOR /r %%i in (.)  DO (	... )` 
 - This is a for loop in batch scripting
@@ -49,7 +50,7 @@ Here we define and assign a local variable called `compress_factor`.
   - `in (.)` -- specifies to begin searching for all directories iteratively, starting from the directory where batch file is placed
   - `DO (...)` -- carry out the commands within the parentheses
 
-
+<br />
 
 4. `cd "%%~fni"` 
 - Change directory to the directory that is being looped over
@@ -63,6 +64,8 @@ Here we define and assign a local variable called `compress_factor`.
 5.  `del "list_to_concat.txt"`
 - Searches the current directory for the file `"list_to_concat.txt"` and deletes it (this is necessary as we need to create a new text file with the list of videos to be merged
 
+<br />
+
 6. ``` 
     for %%f in (*.avi) do (
         echo file %%f >>  "list_to_concat.txt"             
@@ -73,6 +76,8 @@ Here we define and assign a local variable called `compress_factor`.
   - `%%f` is the loop variable
   - `(*.avi)` is used to loop over all files with extension .avi
   - `echo` is used to print (this is similar to `fprintf` in C language). 
+    
+<br />
     
 7. `ffmpeg ...`
 - This is the main video processing command
@@ -87,3 +92,6 @@ Here we define and assign a local variable called `compress_factor`.
   - `-an` -- **N**o **a**udio stream in output
   - `-y` -- Overwrites any existing output file with same name.
   - `"%%~fni/%%~ni_concat.avi"` -- `%%~fni` is the path of the current directory. `%%~ni` is the name of the current directory. So if you are in a directory called `D:/videos`, you will see an output video `D:/videos/videos_concat.avi`
+
+
+<br />
